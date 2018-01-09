@@ -21,4 +21,4 @@
 * [node-find-files](https://www.npmjs.com/package/node-find-files)
 
 Florian HUREAU Florian.hureau@edu.uca.fr
-Ophélie SOUSA Ophelie.sousa@edu.uca.fr
+Ophélie SOUSA Ophelie.sousa@edu.uca.fr 
