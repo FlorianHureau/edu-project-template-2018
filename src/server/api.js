@@ -14,10 +14,9 @@ router.post('/', function (req, res) {
   episode.name = req.body.name;
   episode.code = req.body.code;
   episode.note = req.body.note;
-  console.log(episode);
   episode.id = uuid.v4();
   fs.writeFile(config.data+'/'+episode.id+'.json', JSON.stringify(episode), function() {
-		res.sendStatus(500);
+		res.sendStatus(200);
 	});
 	res.status(201).send(JSON.stringify({id : episode.id}));
 });
@@ -52,8 +51,7 @@ router.get('/', function(req, res){
 		}	else {
 			var list = [];
 			var i = 0;
-			for(i; i < files.length ; i++)
-			{
+			for(i; i < files.length ; i++) {
 				var obj = JSON.parse(fs.readFileSync(files[i], 'utf8'));
 				list.push(obj);
 			}
@@ -74,19 +72,26 @@ router.delete('/:idEp', function(req,res){
     fs.unlinkSync(path);
 		return res.sendStatus(204);
   }else {
-    console.log(req.data);
 		return res.sendStatus(404);
 	}
 });
 
-//Update
-// router.put('/:idEp', function(req,res){
-//   var idEp = req.params.idEp;
-//   var path = config.data + "/" + idEp + ".json";
-//   if(fs.existsSync(path)){
-//     console.log('coucou');
-//   }else {
-// 			return res.sendStatus(404);
-// 		}
-// }
+//Update an episode
+router.put('/:idEp', function(req,res){
+  var idEp = req.params.idEp;
+  var path = config.data + "/" + idEp + ".json";
+  var episode = req.body;
+  episode.name = req.body.name;
+  episode.code = req.body.code;
+  episode.note = req.body.note;
+  episode.id = idEp;
+  if(fs.existsSync(path)){
+    fs.writeFile(path, JSON.stringify(episode), function() {
+    res.sendStatus(200);
+    });
+  }else {
+			return res.sendStatus(404);
+	}
+});
+
 module.exports = router
