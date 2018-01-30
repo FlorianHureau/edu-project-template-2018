@@ -5,31 +5,32 @@ const uuid = require('node-uuid');
 const fs = require('fs');
 const config = require('./config.js');
 const FindFiles = require('node-find-files');
+const dal = require('./dal');
 
 router.use(bodyParser.json());
 
 //add an episode
 router.post('/', function (req, res) {
-  var episode = req.body;
-  episode.name = req.body.name;
-  episode.code = req.body.code;
-  episode.note = req.body.note;
-  episode.id = uuid.v4();
-  fs.writeFile(config.data+'/'+episode.id+'.json', JSON.stringify(episode), function() {
-		res.sendStatus(200);
-	});
-	res.status(201).send(JSON.stringify({id : episode.id}));
+  const ep = req.body;
+  console.log(req.body);
+  ep.id = uuid.v4();
+  dal.insert(ep).then((episode)=>{
+      res.status(201);
+      res.send(episode);
+    }).catch((err)=>{
+      res.sendStatus(500);
+    });
 });
 
 //Get an episode by is id
 router.get('/:idEp', function(req, res){
-  var idEp = req.params.idEp;
-  var path = config.data + "/" + idEp + ".json";
-  if(fs.existsSync(path)){
-    return res.json(JSON.parse(fs.readFileSync(path, 'utf8')));
-  }else {
-			return res.sendStatus(404);
-		}
+  const idEp = req.params.idEp;
+  dal.findId(idEp).then((episode)=>{
+      res.status(201);
+      res.send(episode);
+    }).catch((err)=>{
+      res.sendStatus(500);
+    });
 });
 
 //Get all episodes
