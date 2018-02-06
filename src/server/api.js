@@ -25,7 +25,7 @@ router.post('/', function (req, res) {
 router.get('/:idEp', function(req, res){
   const idEp = req.params.idEp;
   dal.findId(idEp).then((episode)=>{
-      res.status(201);
+      res.status(200);
       res.send(episode);
     }).catch((err)=>{
       res.sendStatus(500);
@@ -90,8 +90,7 @@ router.get('/', function (request, response) {
 router.delete('/:idEp', function(req, res) {
   const idEp = req.params.idEp;
   dal.remove(idEp).then(() => {
-    console.log('deleted');
-      res.status(201);
+      res.sendStatus(204);
     }).catch((err)=>{
       res.sendStatus(500);
     });
@@ -103,7 +102,8 @@ router.put('/:idEp', function(req, res){
   newEp.id = req.params.idEp;
   const idEp = req.params.idEp;
   dal.update(idEp,newEp).then((episode) => {
-    res.status(201);
+    res.status(200);
+    console.log(episode);
     res.send(episode);
     }).catch((err)=>{
       res.sendStatus(500);
