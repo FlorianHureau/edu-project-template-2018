@@ -55,25 +55,56 @@ exports.update = function(idEp, episode) {
   })
 };
 
+exports.findAll = function() {
+  return new Promise((resolve, reject)=> {
+    const path = `${config.data}`;
+
+    fs.readdir(config.data, (err, files) => {
+        if (err) {
+            reject(err);
+            return;
+        }
+    Promise.all(files.map((path) => {
+        // return fs.readFile(path);
+        fs.readFile(path, 'utf8',function(err, episodes){
+          if(err){
+            reject(err);
+            return;
+          }
+          resolve(JSON.parse(episodes));
+        })
+    })).then((episodes) => {
+        resolve(episodes);
+      });
+    });
+  });
+};
+
 
 // exports.findAll = function() {
 //   return new Promise((resolve, reject)=> {
-//     const path = `${config.data}/${idEp}.json`;
+//     const path = `${config.data}`;
 //
-//     var finder = new FindFiles({
-//       rootFolder : config.data,
-//       filterFunction: (path) => {
-//         console.log(path);
-//         return true;
-//       }
+//     fs.readdir(config.data, (err, files) => {
+//         if (err) {
+//             reject(err);
+//             return;
+//         }
+//
+//         const promies = [];
+//         files.forEach(function(file){
+//           Promise.push(fs.readFile(path+"/"+files,function(err, episodes){
+//               if(err){
+//               reject(err);
+//               return;
+//               }
+//               resolve(JSON.parse(episodes));
+//           }));
+//
+//     })).then((episodes) => {
+//         resolve(episodes);
+//       });
 //     });
-//
-//     fs.readFile(path, 'utf8',function(err, data){
-//       if(err){
-//         reject(err);
-//         return;
-//       }
-//       resolve(JSON.parse(data));
-// 		})
-//   })
+//   });
 // };
+//

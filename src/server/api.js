@@ -33,39 +33,61 @@ router.get('/:idEp', function(req, res){
 });
 
 //Get all episodes
-router.get('/', function(req, res){
-  var finder = new FindFiles({
-    rootFolder : config.data,
-    filterFunction: (path) => {
-      console.log(path);
-      return true;
-    }
-  });
-  var files = [];
-  finder.on('match', function(strPath, stat) {
-		files.push(strPath);
-	});
-  finder.on('complete', function() {
-		if(files.length==0) {
-			return res.sendStatus(204);
-		}	else {
-			var list = [];
-			var i = 0;
-			for(i; i < files.length ; i++) {
-				var obj = JSON.parse(fs.readFileSync(files[i], 'utf8'));
-				list.push(obj);
-			}
-			return res.json(list);
-		}
-	});
-  finder.on('error', function(err) {
-      console.log(err);
-  });
-  finder.startSearch();
+// router.get('/', function(req, res) {
+//   var finder = new FindFiles({
+//     rootFolder : config.data,
+//     filterFunction: (path) => {
+//       return true;
+//     }
+//   });
+//   var files = [];
+//   finder.on('match', function(strPath, stat) {
+// 		files.push(strPath);
+// 	});
+//   finder.on('complete', function() {
+// 		if(files.length==0) {
+// 			return res.sendStatus(204);
+// 		}	else {
+// 			var list = [];
+// 			var i = 0;
+// 			for(i; i < files.length ; i++) {
+// 				var obj = JSON.parse(fs.readFileSync(files[i], 'utf8'));
+// 				list.push(obj);
+// 			}
+// 			return res.json(list);
+// 		}
+// 	});
+//   finder.on('error', function(err) {
+//       console.log(err);
+//   });
+//   finder.startSearch();
+// });
+
+
+
+
+//Get all episodes
+// router.get('/', function(req, res) {
+//   dal.findAll().then((episodes) => {
+//     res.status(200);
+//     res.send(episodes);
+//   }).catch((err) => {
+//     res.sendStatus(500);
+//   });
+// });
+
+router.get('/', function (request, response) {
+    dal.findAll().then((episodes) => {
+        response.status(200);
+        response.send(episodes);
+    }).catch((err) => {
+        response.sendStatus(500);
+    });
 });
 
+
 //Delete an episode by is id
-router.delete('/:idEp', function(req, res){
+router.delete('/:idEp', function(req, res) {
   const idEp = req.params.idEp;
   dal.remove(idEp).then(() => {
     console.log('deleted');
@@ -74,8 +96,6 @@ router.delete('/:idEp', function(req, res){
       res.sendStatus(500);
     });
 });
-
-
 
 //Update an episode
 router.put('/:idEp', function(req, res){
