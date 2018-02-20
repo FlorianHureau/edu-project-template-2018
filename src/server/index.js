@@ -10,5 +10,5 @@ const app = express()
 
 app.use('/api/episodes', api)
 
-app.get('/', (req, res) => res.send('Hello World!'));
+// app.get('/', (req, res) => res.send('Hello World!'));
 app.listen(config.port, () => console.log('Example app li'));

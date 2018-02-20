@@ -18,7 +18,7 @@ var server = {
         this.process.stderr.addListener('data', function (data) {
             sys.print(data);
         });
-        
+
         this.process.addListener('exit', function (code) {
             console.log('Child process exited: ' + code);
             this.process = null;
@@ -52,9 +52,7 @@ var server = {
             historyApiFallback: true,
             publicPath: '/',
             proxy: {
-                '/notes/*': {
-                    target: 'http://localhost:3000',
-                }
+                '/api/episodes': 'http://localhost:3000'
             }
         }).listen(port, 'localhost', function (err) {
             if (err) {
