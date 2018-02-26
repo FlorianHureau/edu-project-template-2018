@@ -1,4 +1,3 @@
-// import ItemEpisode from '../components/ItemEpisode';
 import React, { Component } from 'react';
 
 import ItemEpisode from './ItemEpisode';
@@ -20,7 +19,7 @@ export default class ListEpisodes extends React.Component {
         this.setState({episodes: episodes})
     });
   }
-  
+
   render() {
     const elements = this.state.episodes.map((episode) => {
       return(<ItemEpisode name={episode.name} code={episode.code} note={episode.note}/>)
@@ -34,6 +33,7 @@ export default class ListEpisodes extends React.Component {
               <th>Tv show</th>
               <th>Episode</th>
               <th>Score</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>

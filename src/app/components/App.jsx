@@ -4,6 +4,8 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configure from './store';
 import ListEpisodes from '../components/ListEpisodes';
+import HomePage from '../components/HomePage';
+import Footer from './Footer';
 const store = configure();
 
 // class Yolo extends Component {
@@ -29,9 +31,13 @@ export default class App extends Component {
             <Provider store={store}>
                 <Router>
                   <div>
-                    <Route path="/list" component={ListEpisodes}></Route>
-                    <Route path="/new" component={Swag}>
-                    </Route>
+                    <div>
+                      <Route path="/list" component={ListEpisodes}></Route>
+                      <Route path="/home" component={HomePage}></Route>
+                      <Route path="/new" component={Swag}>
+                      </Route>
+                    </div>
+                    <Footer/>
                   </div>
                 </Router>
             </Provider>

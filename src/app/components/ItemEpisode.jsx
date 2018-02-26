@@ -5,12 +5,18 @@ class ItemEpisode extends React.Component {
   constructor() {
     super();
   }
+
   render() {
     return (
       <tr>
         <td>{this.props.name}</td>
         <td>{this.props.code}</td>
         <td>{this.props.note}</td>
+        <td>
+          <button type="button" className="btn btn-danger btn-xs" >
+            <span className="glyphicon glyphicon-trash"></span> x
+          </button>
+        </td>
       </tr>
     );
   }
