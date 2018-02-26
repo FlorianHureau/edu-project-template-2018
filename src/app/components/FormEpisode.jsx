@@ -49,7 +49,6 @@ export default class ListEpisodes extends React.Component {
     });
   }
 
-
   render() {
     return (
       <div  className="row-fluid">
@@ -68,8 +67,8 @@ export default class ListEpisodes extends React.Component {
                 <input type="number" className="form-control" name='score' id="episodeScore" aria-describedby="episodeScore" placeholder="Enter a score" onChange={this.handleChangeScore}/>
               </div>
       	      <div className="form-group">
-        	    		<div className="col-sm-offset-3 col-sm-6" >
-        	    		    <input className="btn btn-primary" type="submit" value="save"  />
+        	    		<div className="col-sm-offset-3 col-sm-6">
+        	    		    <input className="btn btn-primary col-sm-offset-3 col-sm-6" type="submit" value="save"  />
         	    		</div>
         		  </div>
       	    </form>

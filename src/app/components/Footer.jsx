@@ -5,18 +5,14 @@ class Footer extends React.Component {
   constructor() {
     super();
   }
+  
   render() {
     return (
-
-<div class="card-footer">
-  <div className="card-footer text-muted">
-      <div className="row text-center">
-      	<p>Copyright © 2018 All rights reserved</p>
-      </div>
-   </div>
-</div>
-
-
+      <div className=" footer card-footer text-muted">
+          <div className="text-center">
+          	<p>Copyright © 2018 All rights reserved</p>
+          </div>
+       </div>
     );
   }
 }
