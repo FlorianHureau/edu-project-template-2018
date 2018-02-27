@@ -3,10 +3,13 @@ import React, { Component, PropTypes } from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configure from './store';
+const store = configure();
 import ListEpisodes from '../components/ListEpisodes';
 import HomePage from '../components/HomePage';
 import Footer from './Footer';
-const store = configure();
+import Header from './Header';
+import DetailEpisode from '../components/DetailEpisode';
+
 
 // class Yolo extends Component {
 //     render() {
@@ -31,11 +34,10 @@ export default class App extends Component {
             <Provider store={store}>
                 <Router>
                   <div>
+                    <Header/>
                     <div>
-                      <Route path="/list" component={ListEpisodes}></Route>
-                      <Route path="/home" component={HomePage}></Route>
-                      <Route path="/new" component={Swag}>
-                      </Route>
+                      <Route path="/home" component={HomePage}/>
+                      <Route path="/:id" component={DetailEpisode}/>
                     </div>
                     <Footer/>
                   </div>

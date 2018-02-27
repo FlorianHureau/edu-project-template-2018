@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-
+import { Link } from "react-router-dom";
 class ItemEpisode extends React.Component {
 
   constructor() {
@@ -19,23 +19,22 @@ deleteEpisode(){
   });
 }
 
-  render() {
-    return (
-      <tr>
-        <td>{this.props.name}</td>
-        <td>{this.props.code}</td>
-        <td>{this.props.note}</td>
-        <td>
-          <button type="button" className="btn btn-danger" onClick={this.deleteEpisode} >
-            <span className="glyphicon glyphicon-trash"></span>
-          </button>
-        </td>
-        <td>
-          <button type="button" className="btn btn-primary" ><a className="glyphicon glyphicon-edit" href={this.props.id}></a>
-          </button>
-        </td>
-      </tr>
-    );
-  }
+render() {
+  return (
+    <tr>
+      <td>{this.props.name}</td>
+      <td>{this.props.code}</td>
+      <td>{this.props.note}</td>
+      <td>
+        <button type="button" className="btn btn-danger" onClick={this.deleteEpisode} >
+          <span className="glyphicon glyphicon-trash"></span>
+        </button>
+      </td>
+      <td>
+       <Link className="btn btn-primary glyphicon glyphicon-edit" to={'/'+this.props.id}></Link>
+      </td>
+    </tr>
+  );
+}
 }
 export default ItemEpisode;

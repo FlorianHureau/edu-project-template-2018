@@ -14,7 +14,7 @@ export default class HomePage extends React.Component {
       <div className="container-fluid">
         <div className="row">
           <div className="col-sm-6">
-              <ListEpisodes/>
+            <ListEpisodes/>
           </div>
           <div className="col-sm-6">
             <FormEpisode/>

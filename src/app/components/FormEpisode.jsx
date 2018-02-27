@@ -55,15 +55,15 @@ export default class ListEpisodes extends React.Component {
       		<div><h2 className="text-center">Add an episode</h2></div>
       	  	<form className="form-horizontal" onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label for="exampleInputEmail1">Tv Show</label>
+                <label for="fromEp">Tv Show</label>
                 <input type="text" className="form-control" name='name' id="tvShowName" aria-describedby="tvShowName" placeholder="Enter an tv show name" onChange={this.handleChangeName} />
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Episode</label>
+              <div className="form-group">
+                <label for="fromEp">Episode</label>
                 <input type="text" className="form-control" name='code' id="episodeCode" aria-describedby="tvShowName" placeholder="Enter an episode" onChange={this.handleChangeEpisode}/>
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Score</label>
+              <div className="form-group">
+                <label for="fromEp">Score</label>
                 <input type="number" className="form-control" name='score' id="episodeScore" aria-describedby="episodeScore" placeholder="Enter a score" onChange={this.handleChangeScore}/>
               </div>
       	      <div className="form-group">
