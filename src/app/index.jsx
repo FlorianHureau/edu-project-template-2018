@@ -7,7 +7,7 @@ import App from './components/App';
 const appElement = document.getElementById('app');
 
 ReactDOM.render(
-    <AppContainer>    
+    <AppContainer>
         <App />
     </AppContainer>,
     appElement

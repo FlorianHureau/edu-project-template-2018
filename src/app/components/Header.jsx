@@ -8,7 +8,8 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className="header">
+      <div className="header jumbotron text-center">
+        <h1> Alltvshow </h1>
 
        </div>
     );

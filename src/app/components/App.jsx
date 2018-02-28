@@ -11,23 +11,6 @@ import Header from './Header';
 import DetailEpisode from '../components/DetailEpisode';
 
 
-// class Yolo extends Component {
-//     render() {
-//         return(<h1>Hello World szedzedxef!!</h1>);
-//     }
-// };
-class Swag extends Component {
-    render() {
-        return(<h1>Ce que vous voulez</h1>);
-    }
-};
-
-// class episode extends Component {
-//   render(){
-//     return(<h1>dzefezf</h1>);
-//   }
-// };
-
 export default class App extends Component {
     render() {
         return (
@@ -36,7 +19,7 @@ export default class App extends Component {
                   <div>
                     <Header/>
                     <div>
-                      <Route path="/home" component={HomePage}/>
+                      <Route exact path="/" component={HomePage}/>
                       <Route path="/:id" component={DetailEpisode}/>
                     </div>
                     <Footer/>

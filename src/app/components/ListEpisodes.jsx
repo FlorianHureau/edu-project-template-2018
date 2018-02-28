@@ -9,10 +9,13 @@ export default class ListEpisodes extends React.Component {
     this.state = {episodes: []};
   }
 
-
   componentWillMount() {
     fetch('/api/episodes', {
-      method: 'GET'
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
     }).then((response) => {
       return response.json();
     }).then((episodes) => {
@@ -23,11 +26,11 @@ export default class ListEpisodes extends React.Component {
 
   render() {
     const elements = this.state.episodes.map((episode) => {
-      return(<ItemEpisode name={episode.name} code={episode.code} note={episode.note} id={episode.id}/>)
+      return(<ItemEpisode name={episode.name} code={episode.code} note={episode.note} id={episode.id} key={episode.id} />)
     });
     return (
       <div  className="row-fluid">
-      <h1>Episode list</h1>
+      <h2>Episode list</h2>
         <table className="table">
           <thead>
             <tr>
