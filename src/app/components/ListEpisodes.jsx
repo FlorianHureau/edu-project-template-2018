@@ -31,6 +31,7 @@ export default class ListEpisodes extends React.Component {
     return (
       <div  className="row-fluid">
       <h2>Episode list</h2>
+      <div>
         <table className="table">
           <thead>
             <tr>
@@ -45,6 +46,7 @@ export default class ListEpisodes extends React.Component {
               {elements}
           </tbody>
         </table>
+        </div>
       </div>
     );
   }

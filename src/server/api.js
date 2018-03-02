@@ -17,7 +17,7 @@ router.post('/', function (req, res) {
       res.status(201);
       res.send(episode);
     }).catch((err)=>{
-      res.sendStatus(500);
+      res.sendStatus(404);
     });
 });
 
@@ -28,7 +28,7 @@ router.get('/:idEp', function(req, res){
       res.status(200);
       res.send(episode);
     }).catch((err)=>{
-      res.sendStatus(500);
+      res.sendStatus(404);
     });
 });
 

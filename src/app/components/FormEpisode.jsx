@@ -52,7 +52,8 @@ export default class ListEpisodes extends React.Component {
   render() {
     return (
       <div  className="row-fluid">
-      		<div><h2 className="text-center">Add an episode</h2></div>
+      		  <h2 className="text-center">Add an episode</h2>
+            <div>
       	  	<form className="form-horizontal" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label for="fromEp">Tv Show</label>
@@ -72,6 +73,7 @@ export default class ListEpisodes extends React.Component {
         	    		</div>
         		  </div>
       	    </form>
+            </div>
           </div>
     );
   }
