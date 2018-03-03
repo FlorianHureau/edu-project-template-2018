@@ -49,32 +49,32 @@ export default class ListEpisodes extends React.Component {
     });
   }
 
-  render() {
-    return (
-      <div  className="row-fluid">
-      		  <h2 className="text-center">Add an episode</h2>
-            <div>
-      	  	<form className="form-horizontal" onSubmit={this.handleSubmit}>
-              <div className="form-group">
-                <label for="fromEp">Tv Show</label>
-                <input type="text" className="form-control" name='name' id="tvShowName" aria-describedby="tvShowName" placeholder="Enter an tv show name" onChange={this.handleChangeName} />
-              </div>
-              <div className="form-group">
-                <label for="fromEp">Episode</label>
-                <input type="text" className="form-control" name='code' id="episodeCode" aria-describedby="tvShowName" placeholder="Enter an episode" onChange={this.handleChangeEpisode}/>
-              </div>
-              <div className="form-group">
-                <label for="fromEp">Score</label>
-                <input type="number" className="form-control" name='score' id="episodeScore" aria-describedby="episodeScore" placeholder="Enter a score" onChange={this.handleChangeScore}/>
-              </div>
-      	      <div className="form-group">
-        	    		<div className="col-sm-offset-3 col-sm-6">
-        	    		    <input className="btn btn-primary col-sm-offset-3 col-sm-6" type="submit" value="save"  />
-        	    		</div>
-        		  </div>
-      	    </form>
+render() {
+  return (
+    <div className="row-fluid">
+      <h2 className="text-center">Add an episode</h2>
+      <div>
+        <form className="form-horizontal" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label for="fromEp">Tv Show</label>
+            <input type="text" className="form-control" name='name' id="tvShowName" aria-describedby="tvShowName" placeholder="Enter an tv show name" onChange={this.handleChangeName} required/>
+          </div>
+          <div className="form-group">
+            <label for="fromEp">Episode</label>
+            <input type="text" className="form-control" name='code' id="episodeCode" aria-describedby="tvShowName" placeholder="Enter an episode" onChange={this.handleChangeEpisode} required/>
+          </div>
+          <div className="form-group">
+            <label for="fromEp">Score</label>
+            <input type="number" className="form-control" name='score' id="episodeScore" aria-describedby="episodeScore" placeholder="Enter a score" onChange={this.handleChangeScore} required/>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-offset-3 col-sm-6">
+              <input className="btn btn-primary col-sm-offset-3 col-sm-6" type="submit" value="save"  />
             </div>
           </div>
-    );
-  }
+        </form>
+      </div>
+  </div>
+  );
+}
 };

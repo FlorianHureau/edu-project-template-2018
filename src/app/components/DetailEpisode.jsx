@@ -62,7 +62,7 @@ handleSubmit(event){
   }).then(response => {
     return response.json()
   }).then((res) => {
-        this.props.history.push(`/${this.props.match.params.id}`);
+        // this.props.history.push(`/${this.props.match.params.id}`);
         window.location.reload();
   }).catch((error) => {
         console.error(error);
@@ -71,7 +71,6 @@ handleSubmit(event){
 }
 
 render() {
-
   const isClicked = this.state.isClicked;
   let codeEp = null;
   let scoreEp = null;
@@ -88,7 +87,8 @@ render() {
   }
 
   return (
-    <div className="row col-sm-2 col-sm-offset-5 justify-content-md-center">
+    <div className="container-fluid detailContent" >
+      <div className="col-sm-4 col-sm-offset-4 ">
       <table className="table">
         <thead className="thead-dark">
           <tr>
@@ -111,6 +111,8 @@ render() {
           </tr>
         </tbody>
       </table>
+      </div>
+
     </div>
   );
   }
