@@ -30,7 +30,7 @@ export default class ListEpisodes extends React.Component {
     });
     return (
       <div  className="row-fluid">
-      <h2>Episode list</h2>
+      <h2 className="text-center" >Episode list</h2>
       <div className="listEpContent">
         <table className="table">
           <thead>

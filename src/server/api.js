@@ -17,7 +17,7 @@ router.post('/', function (req, res) {
       res.status(201);
       res.send(episode);
     }).catch((err)=>{
-      res.sendStatus(404);
+      res.sendStatus(400);
     });
 });
 
@@ -33,55 +33,12 @@ router.get('/:idEp', function(req, res){
 });
 
 //Get all episodes
-// router.get('/', function(req, res) {
-//   var finder = new FindFiles({
-//     rootFolder : config.data,
-//     filterFunction: (path) => {
-//       return true;
-//     }
-//   });
-//   var files = [];
-//   finder.on('match', function(strPath, stat) {
-// 		files.push(strPath);
-// 	});
-//   finder.on('complete', function() {
-// 		if(files.length==0) {
-// 			return res.sendStatus(204);
-// 		}	else {
-// 			var list = [];
-// 			var i = 0;
-// 			for(i; i < files.length ; i++) {
-// 				var obj = JSON.parse(fs.readFileSync(files[i], 'utf8'));
-// 				list.push(obj);
-// 			}
-// 			return res.json(list);
-// 		}
-// 	});
-//   finder.on('error', function(err) {
-//       console.log(err);
-//   });
-//   finder.startSearch();
-// });
-
-
-
-
-//Get all episodes
-// router.get('/', function(req, res) {
-//   dal.findAll().then((episodes) => {
-//     res.status(200);
-//     res.send(episodes);
-//   }).catch((err) => {
-//     res.sendStatus(500);
-//   });
-// });
-
 router.get('/', function (request, response) {
     dal.findAll().then((episodes) => {
         response.status(200);
         response.send(episodes);
     }).catch((err) => {
-        response.sendStatus(500);
+        response.sendStatus(404);
     });
 });
 
@@ -91,7 +48,7 @@ router.delete('/:idEp', function(req, res) {
   dal.remove(idEp).then(() => {
       res.sendStatus(204);
     }).catch((err)=>{
-      res.sendStatus(500);
+      res.sendStatus(404);
     });
 });
 
@@ -101,14 +58,11 @@ router.put('/:idEp', function(req, res){
   newEp.id = req.params.idEp;
   const idEp = req.params.idEp;
   dal.update(idEp,newEp).then((episode) => {
-    res.status(200);
-    console.log(episode);
+    res.status(204);
     res.send(episode);
     }).catch((err)=>{
-      res.sendStatus(500);
+      res.sendStatus(400);
     });
 });
-
-
 
 module.exports = router
