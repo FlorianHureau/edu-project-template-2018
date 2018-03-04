@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ItemEpisode from './ItemEpisode';
 
-export default class ListEpisodes extends React.Component {
+class ListEpisodes extends React.Component {
 
   constructor(props) {
     super(props);
@@ -19,8 +19,9 @@ export default class ListEpisodes extends React.Component {
     }).then((response) => {
       return response.json();
     }).then((episodes) => {
-        console.log(episodes);
-        this.setState({episodes: episodes})
+      this.setState({episodes: episodes})
+    }).catch((error) => {
+      console.error(error);
     });
   }
 
@@ -30,7 +31,7 @@ export default class ListEpisodes extends React.Component {
     });
     return (
       <div  className="row-fluid">
-      <h2 className="text-center" >Episode list</h2>
+      <h2 className="text-center">Episode list</h2>
       <div className="listEpContent">
         <table className="table">
           <thead>
@@ -43,11 +44,12 @@ export default class ListEpisodes extends React.Component {
             </tr>
           </thead>
           <tbody>
-              {elements}
+            {elements}
           </tbody>
         </table>
         </div>
       </div>
     );
   }
-};
+}
+export default ListEpisodes;

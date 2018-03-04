@@ -19,8 +19,8 @@ export default class App extends Component {
                   <div>
                     <Header/>
                     <div className="container-fluid content" >
-                          <Route exact path="/" component={HomePage}/>
-                          <Route path="/:id" component={DetailEpisode}/>
+                      <Route exact path="/" component={HomePage}/>
+                      <Route path="/:id" component={DetailEpisode}/>
                     </div>
                     <Footer/>
                   </div>

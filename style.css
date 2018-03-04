@@ -9,12 +9,19 @@ body {
   font-family: 'Montserrat', sans-serif;
   width: 100%;
 }
-.detailContent{
-  padding-top: 10%;
+.detailEditionContent{
+  padding-top: 5%;
+}
+.detailEditionContent h2 {
+  margin-bottom: 50px;
+
 }
 .listEpContent{
     overflow-y:auto;
     height: 64vh;
+}
+.formContent{
+  margin-top: 2%;
 }
 /* Header*/
 .header {

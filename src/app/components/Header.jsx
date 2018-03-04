@@ -13,7 +13,7 @@ class Header extends React.Component {
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <a className="navbar-brand" href="#">Alltvshow</a>
+          <p className="navbar-brand">Alltvshow</p>
           <div className="collapse navbar-collapse" id="nav-content">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">

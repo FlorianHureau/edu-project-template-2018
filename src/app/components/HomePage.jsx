@@ -2,11 +2,10 @@ import React, { PropTypes } from 'react';
 import ListEpisodes from './ListEpisodes';
 import FormEpisode from './FormEpisode';
 
-export default class HomePage extends React.Component {
+class HomePage extends React.Component {
 
   constructor(props) {
     super(props);
-
   }
 
   render() {
@@ -23,4 +22,5 @@ export default class HomePage extends React.Component {
       </div>
     );
   }
-};
+}
+export default HomePage;

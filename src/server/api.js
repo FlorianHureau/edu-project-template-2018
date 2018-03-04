@@ -9,7 +9,7 @@ const dal = require('./dal');
 
 router.use(bodyParser.json());
 
-//add an episode
+//Add an episode
 router.post('/', function (req, res) {
   const ep = req.body;
   ep.id = uuid.v4();

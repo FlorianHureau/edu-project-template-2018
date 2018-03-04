@@ -37,6 +37,7 @@ function deleteFakeEpisode(done) {
     }
   });
 }
+
 describe('delete an episode', () => {
   beforeEach((done) => {
     createFakeEpisode(done);
@@ -67,7 +68,6 @@ describe('Add an episode', () => {
       })
       .done(done);
   });
-
   it ('should have file in data', (done) => {
       fs.stat(path.join(DATA_DIR, `${id}.json`), (err, stats) => {
         if (err  || !stats.isFile()) {
@@ -113,7 +113,6 @@ describe('Update an episode', () => {
   beforeAll((done) => {
     createFakeEpisode(done);
   });
-
   it('should make an http request', (done) => {
     frisby.put(`${URL}/1111-2222`, {
         score: 5,
@@ -133,7 +132,6 @@ describe('Update an episode', () => {
       })
       .done(done);
   });
-
   afterAll((done) => {
     deleteFakeEpisode(done);
   });

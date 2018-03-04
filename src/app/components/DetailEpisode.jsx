@@ -34,6 +34,8 @@ class DetailEpisode extends React.Component {
     }).catch((error) => {
       console.error(error);
     });
+
+
   }
 
   handleChangeClick() {
@@ -74,20 +76,24 @@ class DetailEpisode extends React.Component {
     let codeEp = null;
     let scoreEp = null;
     let saveEditButon = null;
+    let detailEdition = null;
 
     if (isClicked) {
-      codeEp = <td><input type="text" className="form-control" name='code' id="episodeCode" aria-describedby="tvShowName" value={this.state.code} onChange={this.handleChange} /></td>
-      scoreEp = <td><input type="text" className="form-control" name='note' value={this.state.note} onChange={this.handleChange}/></td>
+      codeEp = <td ><input size="1" type="text" className="form-control text-center" name='code'  value={this.state.code} onChange={this.handleChange} required/></td>
+      scoreEp = <td><input size="1" type="text" className="form-control text-center" name='note' value={this.state.note} onChange={this.handleChange} required/></td>
       saveEditButon = <button type="button" className="btn btn-basic btn-block" onClick={this.handleSubmit}>Save</button>
+      detailEdition = <h2 className="text-center">Edition</h2>
     } else {
       codeEp = <td className="text-center">{this.state.code}</td>
       scoreEp = <td className="text-center">{this.state.note}</td>
       saveEditButon = <button type="button" className="btn btn-basic btn-block" onClick={this.handleChangeClick}>Edit</button>
+      detailEdition = <h2 className="text-center">Details</h2>
     }
 
     return (
-      <div className="container-fluid detailContent" >
+      <div className="container-fluid detailEditionContent" >
         <div className="col-sm-4 col-sm-offset-4 ">
+          {detailEdition}
           <table className="table">
             <thead className="thead-dark">
               <tr>
@@ -96,7 +102,7 @@ class DetailEpisode extends React.Component {
             </thead>
             <tbody>
               <tr>
-                <th className="text-center">Episode:</th>
+                <th  className="text-center">Episode:</th>
                 {codeEp}
               </tr>
               <tr>
