@@ -72,7 +72,8 @@ class DetailEpisode extends React.Component {
 
   render() {
     const isClicked = this.state.isClicked;
-    const isEnabled = this.state.code.length > 0 && this.state.note.length > 0;
+    const isEnabled = this.state.code.length > 0 && this.state.note.length > 0 && this.state.note.match('^(?:[1-9]|0[1-9]|10)$') != null;
+
     let codeEp = null;
     let scoreEp = null;
     let saveEditButon = null;
