@@ -28,7 +28,7 @@ class DetailEpisode extends React.Component {
     }).then((response) => {
       return response.json();
     }).then((episode) => {
-      this.setState({ name: episode.name });
+      this.setState({name: episode.name});
       this.setState({code: episode.code});
       this.setState({note: episode.note});
     }).catch((error) => {
@@ -37,17 +37,14 @@ class DetailEpisode extends React.Component {
   }
 
   handleChangeClick() {
-    this.setState({isClicked: true})
+    this.setState({isClicked: true});
   }
 
   handleChange(event){
     let target = event.target;
     let name = target.name;
     let value = target.value;
-
-    this.setState({
-      [name] : value
-    })
+    this.setState({[name] : value});
   }
 
   handleSubmit(event){
@@ -102,7 +99,7 @@ class DetailEpisode extends React.Component {
             </thead>
             <tbody>
               <tr>
-                <th  className="text-center">Episode:</th>
+                <th className="text-center">Episode:</th>
                 {codeEp}
               </tr>
               <tr>

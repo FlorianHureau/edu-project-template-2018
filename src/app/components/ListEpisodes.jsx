@@ -19,7 +19,7 @@ class ListEpisodes extends React.Component {
     }).then((response) => {
       return response.json();
     }).then((episodes) => {
-      this.setState({episodes: episodes})
+      this.setState({episodes: episodes});
     }).catch((error) => {
       console.error(error);
     });

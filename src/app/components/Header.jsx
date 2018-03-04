@@ -22,7 +22,7 @@ class Header extends React.Component {
             </ul>
           </div>
         </nav>
-        <h1 className="text-center"> Alltvshow </h1>
+        <h1 className="text-center">Alltvshow</h1>
       </div>
     );
   }

@@ -6,7 +6,6 @@ const fs = require('fs');
 const config = require('./config.js');
 const FindFiles = require('node-find-files');
 const dal = require('./dal');
-
 router.use(bodyParser.json());
 
 //Add an episode
