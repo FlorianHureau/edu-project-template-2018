@@ -17,13 +17,13 @@ class ListEpisodes extends React.Component {
   }
 
   handleChangeName (event) {
-    this.setState({name: event.target.value})
+    this.setState({name: event.target.value});
   };
   handleChangeEpisode (event) {
-      this.setState({code: event.target.value})
+      this.setState({code: event.target.value});
   };
   handleChangeScore (event) {
-    this.setState({note: event.target.value})
+    this.setState({note: event.target.value});
   };
 
   handleSubmit(){
@@ -36,11 +36,11 @@ class ListEpisodes extends React.Component {
     fetch('/api/episodes', {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
     },
       body: JSON.stringify(episode)
     }).then((response) => {
-      window.location.reload();
+        window.location.reload();
     }).catch((error) => {
         console.error(error);
         window.location.reload();

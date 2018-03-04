@@ -61,8 +61,7 @@ class DetailEpisode extends React.Component {
       },
       body: JSON.stringify(this.state),
     }).then(response => {
-      return response.json()
-    }).then((res) => {
+      return response.json();
       window.location.reload();
     }).catch((error) => {
       console.error(error);
