@@ -63,7 +63,7 @@ class ListEpisodes extends React.Component {
             </div>
             <div className="form-group">
               <label>Score</label>
-              <input type="number" className="form-control" name='score' id="episodeScore" placeholder="Enter a score" onChange={this.handleChangeScore} required/>
+              <input type="number" className="form-control" name='score' id="episodeScore" placeholder="Enter a score" min="1" max="10" onChange={this.handleChangeScore} required/>
             </div>
             <div className="form-group">
               <div className="col-sm-offset-3 col-sm-6">
