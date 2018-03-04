@@ -34,8 +34,6 @@ class DetailEpisode extends React.Component {
     }).catch((error) => {
       console.error(error);
     });
-
-
   }
 
   handleChangeClick() {
@@ -54,6 +52,7 @@ class DetailEpisode extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
+
     fetch('/api/episodes/' + this.props.match.params.id, {
       method: 'PUT',
       headers: {
@@ -73,6 +72,7 @@ class DetailEpisode extends React.Component {
 
   render() {
     const isClicked = this.state.isClicked;
+    const isEnabled = this.state.code.length > 0 && this.state.note.length > 0;
     let codeEp = null;
     let scoreEp = null;
     let saveEditButon = null;
@@ -81,7 +81,7 @@ class DetailEpisode extends React.Component {
     if (isClicked) {
       codeEp = <td ><input size="1" type="text" className="form-control text-center" name='code'  value={this.state.code} onChange={this.handleChange} required/></td>
       scoreEp = <td><input size="1" type="text" className="form-control text-center" name='note' value={this.state.note} onChange={this.handleChange} required/></td>
-      saveEditButon = <button type="button" className="btn btn-basic btn-block" onClick={this.handleSubmit}>Save</button>
+      saveEditButon = <button disabled={!isEnabled} type="button" className="btn btn-basic btn-block" onClick={this.handleSubmit}>Save</button>
       detailEdition = <h2 className="text-center">Edition</h2>
     } else {
       codeEp = <td className="text-center">{this.state.code}</td>
@@ -117,7 +117,6 @@ class DetailEpisode extends React.Component {
             </tbody>
           </table>
         </div>
-
       </div>
     );
   }

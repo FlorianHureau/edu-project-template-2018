@@ -18,7 +18,7 @@ body {
 }
 .listEpContent{
     overflow-y:auto;
-    height: 64vh;
+    height: 61vh;
 }
 .formContent{
   margin-top: 2%;
@@ -48,7 +48,7 @@ body {
   background-color: transparent;
 }
 .navbar-brand{
-  font-size: 30px;
+  font-size: 32px;
 }
 /* Footer*/
 .footer{
